@@ -18,7 +18,11 @@
       <div class="wrapper" data-width="wide">
         <div class="site-header__inner">
           <img src="/assets/fungi-finders.svg" alt="Fungi Finders" />
-          <nav class="primary-navigation">
+          <button aria-controls="primary-nav" aria-expanded="false">
+            <span class="visually-hidden">Menu</span>
+            <img src="/assets/hamburger.svg" alt="" />
+          </button>
+          <nav id="primary-nav" class="primary-navigation">
             <ul role="list">
               <li><a href="/">Discover</a></li>
               <li><a href="#">Mushroom Guide</a></li>
