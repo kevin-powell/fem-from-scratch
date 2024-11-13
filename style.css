@@ -175,6 +175,169 @@
   a:focus-visible {
     color: var(--text-brand-light);
   }
+
+  img {
+    border-radius: var(--border-radius-3);
+  }
+}
+
+@layer layout {
+  .flow > * + * {
+    margin-top: var(--flow-spacer, 1em);
+  }
+
+  .grid-flow {
+    display: grid;
+    gap: var(--grid-flow-gap, 1rem);
+  }
+
+  .equal-columns {
+    display: grid;
+    gap: var(--equal-columns-gap, 1rem);
+    align-items: var(--equal-columns-vertical-alignment, stretch);
+
+    @media (width > 760px) {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+    }
+
+    &[data-gap="large"] {
+      --equal-columns-gap: 2rem;
+    }
+
+    &[data-alignment="centered"] {
+      --equal-columns-vertical-alignment: center;
+    }
+  }
+
+  .section {
+    --padding: 3.75rem;
+    padding-block: var(--padding);
+
+    @media (width > 760px) {
+      --padding: 8rem;
+
+      &[data-padding="compact"] {
+        --padding: 4.5rem;
+      }
+    }
+  }
+
+  .wrapper {
+    --wrapper-max-width: 1130px;
+
+    max-width: var(--wrapper-max-width);
+    margin-inline: auto;
+    padding-inline: 1rem;
+
+    box-sizing: content-box;
+
+    &[data-width="narrow"] {
+      --wrapper-max-width: 720px;
+    }
+
+    &[data-width="wide"] {
+      --wrapper-max-width: 1330px;
+    }
+  }
+}
+
+@layer components {
+  .site-header {
+    padding-block: 1rem;
+  }
+  .site-header__inner {
+    display: flex;
+    gap: 0.5rem 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .primary-navigation {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+  }
+
+  .site-footer {
+    text-align: center;
+    background-color: var(--background-dark);
+    padding-block: 2rem;
+    display: grid;
+    gap: 2rem;
+
+    a {
+      color: var(--text-main);
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: var(--text-brand-light);
+    }
+  }
+
+  .site-footer__title {
+    font-size: var(--font-size-lg);
+    font-family: var(--ff-heading);
+    font-weight: 700;
+  }
+
+  .hero {
+    text-align: center;
+    font-size: var(--font-size-md);
+    color: var(--text-high-contrast);
+    background-image: url(/assets/hero.webp);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero__title {
+    font-size: var(--font-size-heading-lg);
+
+    span {
+      font-size: var(--font-size-heading-xl);
+      color: var(--text-brand);
+      display: block;
+    }
+  }
+
+  .card {
+    display: grid;
+    gap: var(--card-gap, 1rem);
+    padding: 1rem;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius-3);
+
+    img {
+      border-radius: var(--border-radius-2);
+    }
+  }
+
+  .card__title {
+    font-size: var(--card-title-font-size, var(--font-size-heading-sm));
+
+    color: var(--card-title-color, var(--text-brand));
+  }
+
+  .button {
+    display: inline-flex;
+    font-size: var(--font-size-md);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: var(--background-accent-main);
+    font-family: var(--ff-heading);
+    font-weight: 700;
+    border-radius: var(--border-radius-2);
+  }
+
+  .button:hover,
+  .button:focus-visible {
+    color: var(--text-high-contrast);
+    background-color: var(--background-accent-light);
+  }
 }
 
 @layer utilities {
@@ -186,5 +349,53 @@
     position: absolute;
     white-space: nowrap;
     width: 1px;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-brand {
+    color: var(--text-brand);
+  }
+  .text-high-contrast {
+    color: var(--text-high-contrast);
+  }
+
+  .section-title {
+    font-size: var(--font-size-heading-regular);
+  }
+
+  .background-base {
+    background-color: var(--background-base);
+  }
+  .background-light {
+    background-color: var(--background-light);
+  }
+  .background-extra-light {
+    background-color: var(--background-extra-light);
+  }
+  .background-dark {
+    background-color: var(--background-dark);
+  }
+  .background-extra-dark {
+    background-color: var(--background-extra-dark);
+  }
+
+  .background-accent {
+    background-color: var(--background-accent-dark);
+  }
+
+  .font-size-sm {
+    font-size: var(--font-size-sm);
+  }
+  .font-size-regular {
+    font-size: var(--font-size-regular);
+  }
+  .font-size-md {
+    font-size: var(--font-size-md);
+  }
+  .font-size-lg {
+    font-size: var(--font-size-lg);
   }
 }
